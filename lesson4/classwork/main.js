@@ -30,4 +30,29 @@
 
 // - створити функцію яка повертає найбільше число з масиву
 
-let array = []
+
+// let maxArray = [200,3,4,5,6,10,40000,3,600]
+// function arrayMax(array) {
+//     let max = array[0];
+//     for (const element of array) {
+//         if(element > max){
+//             max = element;
+//         }
+//     return max
+//     }
+
+
+
+// - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
+
+
+let summArray = [1,2,3,4]; // 10
+function sumElement (array){
+    let sum = 0;
+    for (const arrayElement of array) {
+        // sum += arrayElement; // // 1 спосіб скорочений
+        sum = arrayElement + sum;
+    }
+    return sum;
+}
+document.write(sumElement(summArray))
