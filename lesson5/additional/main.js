@@ -24,15 +24,43 @@
 //     let newFoo = [];
 //     for (let j = 0; j < arr.length; j++) {
 //         newFoo.push(arr[j])
-//         if (arr[j] === i) {
+//         if (arr.indexOf(i) === i) {
 //             j = i + 1;
 //         }
+//
 //     }
 //
 //     return newFoo
 // }
+// console.log(foo(([9,8,0,4], 1)))
+// let newFoo = [];
+// let foo = (arr, i) => {
+//
+//     for (const newFooElement of arr) {
+//         if (index(newFooElement) === i) {
+//             arr[i] === index + 1;
+//         }
+//         newFoo.push(newFooElement)
+//     }
+//     return newFoo
+// }
+//
+// console.log(foo([9, 8, 0, 4], 1))
+// console.log(newFoo)
+let newarr2 = [];
+let arr = (array, i) => {
+    for (const arrayElement of array)
+        newarr2.push(arrayElement)
+    return arr
+    // if (array.indexOf(arrayElement) === i) {
+    //     array.indexOf(arrayElement) === i + 1;
+
+    // }
 
 
+}
+
+console.log(arr([2, 0, 3, 4], 1))
 // let foo = (arr, i) => {
 //     console.log(arr.length);
 // }
@@ -49,11 +77,23 @@
 // [0,0,1,0]   => [1,0,0,0]
 let zeroEnd = (arr) => {
     let newArray = [];
-    for (let i = 0; i < arr.length; i++) {
-        newArray.push(arr[i])
-            if(arr[i]===0)
+    for (const newArrayElement of arr) {
+        newArray === newArrayElement;
+        if (newArrayElement === 0) {
+            newArrayElement.push()
         }
     }
     return newArray
 }
-   console.log(zeroEnd([1,2,3,0,5]))
+console.log(zeroEnd([1, 2, 3, 0, 5]))
+
+
+// const funRandom = (arr) => {
+//     let arrayEmpty = [];
+//     for (const arrayEmptyElement of arr) {
+//         arrayEmpty === arrayEmptyElement;
+//     }
+//
+//     return arrayEmpty;
+// }
+// console.log(funRandom([10, 5, 0, 2, 3]));
