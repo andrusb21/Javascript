@@ -28,8 +28,9 @@ console.log(filter);
 // - Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
 let sort = Users.sort((a, b) => b.id - a.id)
 console.log(sort);
+
 // - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
-class Client{
+class Client {
     constructor(id, name, email, phone, order) {
         this.id = id;
         this.name = name;
@@ -38,8 +39,20 @@ class Client{
         this.order = order;
     }
 }
+
 // створити пустий масив, наповнити його 10 об'єктами Client
 let clients = [
-    new Client()
+    new Client(1, 'Petro', 'petro@piterson.com', '+380999999999', ['TV', 'Blender', 'vacuum cleaner', 'keetle']),
+    new Client(2, 'Vasyl', 'vasya@piterson.com', '+380999999999', ['TV', 'Blender', 'mixer']),
+    new Client(3, 'Ivan', 'vanya@piterson.com', '+380999999999', ['Blender']),
+    new Client(4, 'Dima', 'dima@piterson.com', '+380999999999', ['TV', 'Blender', 'CoffeeMachine']),
+    new Client(5, 'Oleh', 'oleh@piterson.com', '+380999999999', ['TV', 'Blender', 'fridge']),
+    new Client(6, 'Romko', 'romko@piterson.com', '+380999999999', ['TV']),
+    new Client(7, 'Ruslan', 'rus@piterson.com', '+380999999999', ['TV', 'Blender']),
+    new Client(8, 'Yura', 'yura@piterson.com', '+380999999999', ['TV', 'Blender']),
+    new Client(9, 'Vova', 'vova@piterson.com', '+380999999999', ['TV', 'Blender']),
+    new Client(10, 'Kolya', 'kolya@piterson.com', '+380999999999', ['TV', 'Blender']),
 ]
 // - Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
+let clientsSortOrder = clients.sort((a, b) => a.order.length - b.order.length)
+console.log(clientsSortOrder);
