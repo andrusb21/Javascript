@@ -53,6 +53,6 @@ function zeroToEnd(arr) {
         arr[i] = 0;
     }
     return arr;
-};
+}
 
 console.log(zeroToEnd([0, 2, 5, 0, 45, 0, 3]));;
