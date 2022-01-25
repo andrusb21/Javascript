@@ -16,16 +16,26 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             button.innerText = 'show comments';
             button.onclick = function () {
 
-                fetch('https://jsonplaceholder.typicode.com/posts/${postItem.id}/comments')
+                fetch(`https://jsonplaceholder.typicode.com/posts/${postItem.id}/comments`)
                     .then(value => value.json())
                     .then(value => {
-                        console.log(value)
+                        let commentsDiv = document.createElement('div')
+                        commentsDiv.classList.add('post-comments')
+                        for (const commentItem of value) {
+                            let coment = document.createElement('div')
+                            coment.innerText = commentItem.body;
+
+                            commentsDiv.appendChild(coment)
+                        }
+
+
+                        postDiv.appendChild(commentsDiv)
                     })
 
             }
 
-
-            postsDiv.append(postDiv, button)
+            postDiv.append(button)
+            postsDiv.append(postDiv)
 
         }
     })
