@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="postDetails"></div>
+
+<script>
+    let postDetails = document.getElementsByClassName('postDetails')[0];
+    let postArray = localStorage.getItem('value.name')
+    let parsePost = JSON.parse(postArray)
+
+    let textPost = postDetails.innerHTML = `<b>post title</b> - ${parsePost.title} <br>
+     <b>post body</b> - ${parsePost.body}`
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${parsePost.id}/comments`)
+        .then(value => value.json())
+        .then(value => {
+            for (const valueElement of value) {
+                let coment = document.createElement('div')
+                postDetails.append(coment)
+                coment.innerHTML =` <b>email</b> - ${valueElement.email} <br>
+                <b>coment</b>: ${valueElement.body} `
+            }
+        })
+
+</script>
+</body>
+</html>

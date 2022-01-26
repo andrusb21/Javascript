@@ -9,8 +9,71 @@
 
 
 <script>
+    let userDetails = document.getElementsByClassName('userDetails')[0];
+    let userArray = localStorage.getItem('value.name')
+    let parse = JSON.parse(userArray)
+    let textUser = userDetails.innerHTML = `<b>id</b>- ${parse.id} <br>
+    <b>name</b> - ${parse.name} <br>
+    <b>username</b> - ${parse.username}<br>
+    <b>email</b> - ${parse.email}<br>
+    <b>adress:</b> <br>
+    <b>street</b> - ${parse.address.street}<br>
+   <b> suite</b> - ${parse.address.suite}<br>
+   <b> city </b>- ${parse.address.city}<br>
+    <b>zipcode</b> - ${parse.address.zipcode}<br>
+    <b>geo</b> - ${parse.address.geo}<br>
+     <b> lat</b> - ${parse.address.geo.lat}<br>
+     <b> lng</b> - ${parse.address.geo.lng}<br>
+     <b> phone</b> - ${parse.phone}<br>
+ <b> website</b> - ${parse.website}<br>
+  <b>company:</b><br>
+    <b>company name</b> - ${parse.company.name}<br>
+    <b>catchPhrase</b> - ${parse.company.name}<br>
+   <b> bs</b> - ${parse.company.bs}<br>`
 
-    document.write(localStorage.getItem('value.name'))
+
+    let btn2 = document.createElement('button');
+    btn2.innerHTML = 'post of current user';
+    btn2.addEventListener('click', function () {
+
+        fetch(`https://jsonplaceholder.typicode.com/users/${parse.id}/posts`)
+            .then(value => value.json())
+            .then(value => {
+                for (const valueItem of value) {
+                    let post = document.createElement('div')
+                    post.classList.add('post')
+                    let postText = post.innerText = valueItem.title;
+                    let btn3 = document.createElement('button')
+                    btn3.innerText = 'post details';
+                    btn3.addEventListener('mousedown', function () {
+
+                        fetch(`https://jsonplaceholder.typicode.com/users/${parse.id}/posts`)
+                            .then(value => value.json())
+                            .then(value => {
+                                localStorage.clear()
+                                localStorage.setItem('value.name', JSON.stringify(value[parse.id]))
+
+                            })
+
+
+                    })
+                    btn3.addEventListener('mouseup', function () {
+                        window.location.href= 'post-details.html'
+                    })
+
+
+
+                    post.append(btn3)
+                    userDetails.append(post)
+                }
+
+            })
+
+
+    })
+
+
+    userDetails.append(btn2)
 
 </script>
 </body>

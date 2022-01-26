@@ -18,7 +18,8 @@
 
 // На странице post-details.html:
 // 7 Вывести всю, без исключения, информацию про объект post на кнопку/ссылку которого был совершен клик ранее.
-// 8 Ниже информации про пост, вывести все комментарии текущего поста (эндпоинт для получения информации - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
+// 8 Ниже информации про пост, вывести все комментарии текущего поста
+// (эндпоинт для получения информации - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
 //
 
 
@@ -31,7 +32,7 @@
 // так, что бы было видно их блоки (дать задний фон + margin. Иными словами - крайне четкая сетка
 
 let usersDiv = document.getElementsByClassName('users')[0];
-let userDetails = document.getElementsByClassName('userDetails')[0];
+
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(value => {
@@ -49,13 +50,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
                         localStorage.clear()
                         localStorage.setItem('value.name', JSON.stringify(value))
 
-
-                        // let detailsDiv = document.createElement('div')
-                        // detailsDiv.innerText = `id - ${value.id}
-                        // name - ${value.name}
-                        // username - ${value.username}
-                        // email - ${value.email}`
-                        // usersId.append(detailsDiv)
                     })
 
 
