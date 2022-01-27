@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="postDetails"></div>
@@ -20,6 +21,7 @@
         .then(value => {
             for (const valueElement of value) {
                 let coment = document.createElement('div')
+                coment.classList.add('postComent')
                 postDetails.append(coment)
                 coment.innerHTML =` <b>email</b> - ${valueElement.email} <br>
                 <b>coment</b>: ${valueElement.body} `

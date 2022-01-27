@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="userDetails"></div>
@@ -12,27 +13,28 @@
     let userDetails = document.getElementsByClassName('userDetails')[0];
     let userArray = localStorage.getItem('value.name')
     let parse = JSON.parse(userArray)
-    let textUser = userDetails.innerHTML = `<b>id</b>- ${parse.id} <br>
-    <b>name</b> - ${parse.name} <br>
-    <b>username</b> - ${parse.username}<br>
-    <b>email</b> - ${parse.email}<br>
-    <b>adress:</b> <br>
-    <b>street</b> - ${parse.address.street}<br>
-   <b> suite</b> - ${parse.address.suite}<br>
-   <b> city </b>- ${parse.address.city}<br>
-    <b>zipcode</b> - ${parse.address.zipcode}<br>
-    <b>geo</b> - ${parse.address.geo}<br>
-     <b> lat</b> - ${parse.address.geo.lat}<br>
-     <b> lng</b> - ${parse.address.geo.lng}<br>
-     <b> phone</b> - ${parse.phone}<br>
- <b> website</b> - ${parse.website}<br>
-  <b>company:</b><br>
-    <b>company name</b> - ${parse.company.name}<br>
-    <b>catchPhrase</b> - ${parse.company.name}<br>
-   <b> bs</b> - ${parse.company.bs}<br>`
+    let textUser = userDetails.innerHTML = `id- ${parse.id} <br>
+    name - ${parse.name} <br>
+    username - ${parse.username}<br>
+    email - ${parse.email}<br>
+    adress: <br>
+    street - ${parse.address.street}<br>
+   suite - ${parse.address.suite}<br>
+   city - ${parse.address.city}<br>
+    zipcode - ${parse.address.zipcode}<br>
+    geo -<br>
+     lat - ${parse.address.geo.lat}<br>
+     lng - ${parse.address.geo.lng}<br>
+     phone - ${parse.phone}<br>
+ website - ${parse.website}<br>
+  company:<br>
+    company name - ${parse.company.name}<br>
+    catchPhrase - ${parse.company.name}<br>
+   bs - ${parse.company.bs}<br>`
 
 
     let btn2 = document.createElement('button');
+    btn2.classList.add('btn2')
     btn2.innerHTML = 'post of current user';
     btn2.addEventListener('click', function () {
 
@@ -44,6 +46,7 @@
                     post.classList.add('post')
                     let postText = post.innerText = valueItem.title;
                     let btn3 = document.createElement('button')
+                    btn3.classList.add('btn3')
                     btn3.innerText = 'post details';
                     btn3.addEventListener('mousedown', function () {
 
